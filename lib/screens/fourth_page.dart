@@ -102,8 +102,8 @@ class FourthPage extends StatelessWidget {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          FaIcon(
-                            FontAwesomeIcons.heart, 
+                          Icon(
+                            Icons.favorite, 
                             color: AppColors.pinkHeartColor,
                             size: 16,),
                           SizedBox(width: 6,),

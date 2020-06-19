@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:test_app/screens/fourth_page.dart';
@@ -6,7 +7,29 @@ import 'package:test_app/utils/const.dart';
 import 'package:test_app/utils/utils.dart';
 import 'package:test_app/widgets/expandable_text.dart';
 
-class ThirdPage extends StatelessWidget {
+List<String> carouselImages = [
+  'assets/images/carousel_1.jpg',
+  'assets/images/carousel_2.jpg',
+  'assets/images/carousel_3.jpg',
+  'assets/images/carousel_4.jpg',
+  'assets/images/carousel_5.jpg',
+];
+
+class ThirdPage extends StatefulWidget {
+  @override
+  _ThirdPageState createState() => _ThirdPageState();
+}
+
+class _ThirdPageState extends State<ThirdPage> {
+  final CarouselController carouselController = CarouselController();
+  int current = 0;
+
+  Color gradientStart = Colors.transparent;
+  Color gradientEnd = Colors.black;
+
+  bool isCurrent(int currentIndex, int checkingIndex) => 
+    currentIndex == checkingIndex;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -41,16 +64,82 @@ class ThirdPage extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 500,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                // colorFilter: ColorFilter.mode(
-                //   Colors.black.withOpacity(0.4),
-                //   BlendMode.luminosity),
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/carousel_1.jpg',
-              ))
+            child: Stack(
+              children: <Widget>[
+                CarouselSlider(
+                  carouselController: carouselController,
+                  items: carouselImages.map((e) =>
+                    Container(
+                      height: 500,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          // colorFilter: ColorFilter.mode(
+                          //   Colors.black.withOpacity(0.4),
+                          //   BlendMode.luminosity),
+                          fit: BoxFit.cover,
+                          image: AssetImage(e)),
+                        // gradient: LinearGradient(
+                        //   begin: Alignment.topCenter,
+                        //   end: Alignment.bottomCenter,
+                        //   colors: [gradientStart, gradientEnd],
+                        // ),
+                      ),
+                    )
+                  ).toList(), 
+                  options: CarouselOptions(
+                    height: 500.0,
+                    aspectRatio: 10,
+                    viewportFraction: 1,
+                    initialPage: 0,
+                    autoPlay: true,
+                    onPageChanged: (index, reason) =>
+                      setState(() => current = index),
+                  )
+                ),
+                Positioned(
+                  top: 400,
+                  height: 100,
+                  width: screenWidth,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [gradientStart, gradientEnd],
+                        ),
+                    ),
+                  )
+                ),
+                Positioned(
+                  width: screenWidth,
+                  // top: 40,
+                  bottom: 10,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 30, right: 30),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: carouselImages.map((e) {
+                        int total = carouselImages.length;
+                        int currentIndex = carouselImages.indexOf(e);
+                        return Container(
+                          margin: EdgeInsets.only(left: 3, right: 3),
+                          width: (screenWidth - 60 - 6*total)/total,
+                          height: 3,
+                          decoration: BoxDecoration(
+                            color: AppColors.white.withOpacity(isCurrent(current, currentIndex) ? 1 : 0.5),
+                            borderRadius: BorderRadius.circular(6)
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
+
+
+          
           Container(
             padding: EdgeInsets.only(top: 21, bottom: 35, right: 18, left: 18),
             child: Column(
