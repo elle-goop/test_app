@@ -34,7 +34,6 @@ class _ThirdPageState extends State<ThirdPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double screenWidth = size.width;
-    double screenHeight = size.height;
     return Scaffold(
       backgroundColor: Colors.black,
       resizeToAvoidBottomInset: true,
@@ -44,7 +43,7 @@ class _ThirdPageState extends State<ThirdPage> {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: AppColors.white,), 
-          onPressed: null
+          onPressed: ()=> Utils.pop(context)
         ),
         actions: <Widget>[
           IconButton(

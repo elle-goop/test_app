@@ -11,12 +11,12 @@ class AppColors {
   static const Color greyMediumText = const Color(0xff4B4B4B);
   static const Color greenReadMore = const Color(0xff007F84);
   static const Color pinkHeartColor = const Color(0xffFC595A);
+  static const Color green = const Color(0xff568B2F);
 
   static getSecondaryColor(Color color) => color.withOpacity(opacity);
 }
 
 final ThemeData appTheme = ThemeData(
-  canvasColor: Colors.transparent,
   brightness: Brightness.dark,
   scaffoldBackgroundColor: Colors.white,
   // primaryColor: AppColors.primary,
@@ -36,6 +36,12 @@ class TextStyles {
     fontWeight: FontWeight.bold
   );
 
+  static const TextStyle titleStyleNormal = TextStyle(
+    fontSize: 35.0,
+    color: AppColors.white,
+    fontWeight: FontWeight.w100
+  );
+
   static const TextStyle titleMediumStyle = TextStyle(
     fontSize: 20.0,
     color: AppColors.darkTextColor,
@@ -51,6 +57,11 @@ class TextStyles {
   static const TextStyle baseStyle = TextStyle(
     fontSize: 15.0,
     color: AppColors.white,
+  );
+
+  static const TextStyle smallBaseStyle = TextStyle(
+    fontSize: 13.0,
+    color: AppColors.greyMediumText,
   );
 
   static const TextStyle baseTextStyle = TextStyle(

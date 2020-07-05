@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screens/first_page.dart';
 import 'package:test_app/screens/fourth_page.dart';
 import 'package:test_app/screens/third_page.dart';
 import 'package:test_app/theme/theme.dart';
@@ -16,7 +17,8 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Const.appName,
       theme: appTheme,
-      home: ThirdPage(),
+      home: FirstPage(),
+      // home: ThirdPage(),
       // home: FourthPage(),
     );
   }
