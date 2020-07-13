@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screens/fifth_page.dart';
 import 'package:test_app/screens/first_page.dart';
-import 'package:test_app/screens/fourth_page.dart';
-import 'package:test_app/screens/third_page.dart';
+import 'package:test_app/screens/sixth_page.dart';
 import 'package:test_app/theme/theme.dart';
 import 'package:test_app/utils/const.dart';
 
@@ -10,7 +10,6 @@ void main() {
 }
 
 class App extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,8 +17,6 @@ class App extends StatelessWidget {
       title: Const.appName,
       theme: appTheme,
       home: FirstPage(),
-      // home: ThirdPage(),
-      // home: FourthPage(),
     );
   }
 }

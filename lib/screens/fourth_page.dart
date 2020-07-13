@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screens/fifth_page.dart';
 import 'package:test_app/theme/theme.dart';
 import 'package:test_app/utils/utils.dart';
 
@@ -62,72 +63,78 @@ class FourthPage extends StatelessWidget {
           itemCount: items.length,
           itemBuilder: (context, count) {
             StudentProject current = items[count];
-            return Container(
-              margin: EdgeInsets.only(bottom: 5, top: 20),
-              decoration: BoxDecoration(
-                  color: AppColors.white,
-                  border: Border(
-                      bottom:
-                          BorderSide(color: AppColors.greyLight, width: 2))),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    height: size.width * 0.7,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(current.imagePath),
-                          fit: BoxFit.cover),
-                    ),
-                    child: Align(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 5, vertical: 4),
-                        margin: EdgeInsets.only(bottom: 10, right: 10),
+            return Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () => Utils.navigatePage(context, FifthPage()),
+                child: Container(
+                  margin: EdgeInsets.only(bottom: 5, top: 20),
+                  decoration: BoxDecoration(
+                      color: AppColors.white,
+                      border: Border(
+                          bottom: BorderSide(
+                              color: AppColors.greyLight, width: 2))),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        height: size.width * 0.7,
                         decoration: BoxDecoration(
-                          color: AppColors.darkTextColor,
-                          borderRadius: BorderRadius.circular(4),
+                          image: DecorationImage(
+                              image: AssetImage(current.imagePath),
+                              fit: BoxFit.cover),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 4),
+                            margin: EdgeInsets.only(bottom: 10, right: 10),
+                            decoration: BoxDecoration(
+                              color: AppColors.darkTextColor,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.favorite,
+                                  color: AppColors.pinkHeartColor,
+                                  size: 16,
+                                ),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Text(current.likes.toString()),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 15, top: 15, bottom: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Icon(
-                              Icons.favorite,
-                              color: AppColors.pinkHeartColor,
-                              size: 16,
+                            Text(
+                              current.name,
+                              style: TextStyles.baseBoldStyle
+                                  .copyWith(color: AppColors.darkTextColor),
                             ),
                             SizedBox(
-                              width: 6,
+                              height: 7,
                             ),
-                            Text(current.likes.toString()),
+                            Text(
+                              current.authorName,
+                              style: TextStyles.baseStyle
+                                  .copyWith(color: AppColors.darkTextColor),
+                            ),
                           ],
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 15, bottom: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          current.name,
-                          style: TextStyles.baseBoldStyle
-                              .copyWith(color: AppColors.darkTextColor),
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          current.authorName,
-                          style: TextStyles.baseStyle
-                              .copyWith(color: AppColors.darkTextColor),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
             );
           }),

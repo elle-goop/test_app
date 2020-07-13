@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screens/fifth_page.dart';
+import 'package:test_app/screens/sixth_page.dart';
 import 'package:test_app/screens/first_page.dart';
 import 'package:test_app/screens/fourth_page.dart';
 import 'package:test_app/screens/third_page.dart';
@@ -45,7 +47,7 @@ class _SecondPageState extends State<SecondPage> {
                 ),
                 onTap: () => Utils.navigatePage(context, ThirdPage()),
                 title: Text(
-                  'Go To Third Page',
+                  'Third Page',
                   style: TextStyles.baseTextStyle,
                 ),
               ),
@@ -57,7 +59,31 @@ class _SecondPageState extends State<SecondPage> {
                 ),
                 onTap: () => Utils.navigatePage(context, FourthPage()),
                 title: Text(
-                  'Go To Fourth Page',
+                  'Fourth Page',
+                  style: TextStyles.baseTextStyle,
+                ),
+              ),
+              ListTile(
+                enabled: true,
+                leading: Icon(
+                  Icons.arrow_back,
+                  color: AppColors.darkTextColor,
+                ),
+                onTap: () => Utils.navigatePage(context, FifthPage()),
+                title: Text(
+                  'Fifth Page',
+                  style: TextStyles.baseTextStyle,
+                ),
+              ),
+              ListTile(
+                enabled: true,
+                leading: Icon(
+                  Icons.arrow_back,
+                  color: AppColors.darkTextColor,
+                ),
+                onTap: () => Utils.navigatePage(context, SixthPage()),
+                title: Text(
+                  'Sixth Page',
                   style: TextStyles.baseTextStyle,
                 ),
               ),
@@ -67,8 +93,6 @@ class _SecondPageState extends State<SecondPage> {
       ),
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        // leading: IconButton(
-        //     icon: Icon(Icons.menu), onPressed: () => Utils.pop(context)),
         iconTheme: IconThemeData(color: AppColors.darkTextColor),
         brightness: Brightness.light,
         backgroundColor: AppColors.white,
