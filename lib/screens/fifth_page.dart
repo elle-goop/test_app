@@ -98,6 +98,8 @@ class _FifthPageState extends State<FifthPage>
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
+    double itemHeight = size.width * 0.8;
+    double itemWidth = (size.width - 15) / 2;
     return Scaffold(
       backgroundColor: AppColors.white,
       drawer: Drawer(
@@ -239,7 +241,7 @@ class _FifthPageState extends State<FifthPage>
                     crossAxisCount: 2,
                     crossAxisSpacing: 15,
                     mainAxisSpacing: 15,
-                    childAspectRatio: 0.7),
+                    childAspectRatio: itemWidth / itemHeight),
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 25),
                 itemBuilder: (_, index) {
                   CollectionItem currentItem = gridItems[index];
@@ -248,7 +250,7 @@ class _FifthPageState extends State<FifthPage>
                     child: InkWell(
                       onTap: () => Utils.navigatePage(context, SixthPage()),
                       child: Container(
-                        height: 800,
+                        height: itemHeight,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,

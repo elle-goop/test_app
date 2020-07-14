@@ -52,6 +52,8 @@ class _SixthPageState extends State<SixthPage>
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
+    double itemHeight = size.width * 0.9;
+    double itemWidth = (size.width - 15) / 2;
     return Scaffold(
       backgroundColor: AppColors.white,
       drawer: Drawer(
@@ -193,10 +195,10 @@ class _SixthPageState extends State<SixthPage>
                     crossAxisCount: 2,
                     crossAxisSpacing: 15,
                     mainAxisSpacing: 15,
-                    childAspectRatio: 0.57),
+                    childAspectRatio: itemWidth / itemHeight),
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 25),
                 itemBuilder: (_, index) => Container(
-                  height: 800,
+                  height: itemHeight,
                   decoration: BoxDecoration(
                       border: Border.all(
                           color: AppColors.greyMediumText.withOpacity(0.2))),
