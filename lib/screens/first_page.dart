@@ -44,16 +44,10 @@ List<BottomNavigationBarItem> bottomItems = [
       icon: Icon(Icons.favorite_border), title: Text('Likes')),
 ];
 
-class FirstPage extends StatefulWidget {
-  @override
-  _FirstPageState createState() => _FirstPageState();
-}
-
-class _FirstPageState extends State<FirstPage> {
-  Size size;
+class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       extendBody: true,

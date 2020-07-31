@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/screens/first_page.dart';
-import 'package:test_app/screens/fourth_page.dart';
-import 'package:test_app/screens/second_page.dart';
 import 'package:test_app/screens/sixth_page.dart';
-import 'package:test_app/screens/third_page.dart';
 import 'package:test_app/theme/theme.dart';
+import 'package:test_app/ui/drawer.dart';
 import 'package:test_app/utils/utils.dart';
 
 class CollectionItem {
@@ -102,90 +99,7 @@ class _FifthPageState extends State<FifthPage>
     double itemWidth = (size.width - 15) / 2;
     return Scaffold(
       backgroundColor: AppColors.white,
-      drawer: Drawer(
-        child: Container(
-          color: AppColors.white,
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 30,
-              ),
-              ListTile(
-                enabled: true,
-                leading: Icon(
-                  Icons.arrow_back,
-                  color: AppColors.darkTextColor,
-                ),
-                onTap: () => Utils.navigatePage(context, FirstPage()),
-                title: Text(
-                  'First Page',
-                  style: TextStyles.baseTextStyle,
-                ),
-              ),
-              ListTile(
-                enabled: true,
-                leading: Icon(
-                  Icons.arrow_back,
-                  color: AppColors.darkTextColor,
-                ),
-                onTap: () => Utils.navigatePage(context, SecondPage()),
-                title: Text(
-                  'Second Page',
-                  style: TextStyles.baseTextStyle,
-                ),
-              ),
-              ListTile(
-                enabled: true,
-                leading: Icon(
-                  Icons.arrow_back,
-                  color: AppColors.darkTextColor,
-                ),
-                onTap: () => Utils.navigatePage(context, ThirdPage()),
-                title: Text(
-                  'Third Page',
-                  style: TextStyles.baseTextStyle,
-                ),
-              ),
-              ListTile(
-                enabled: true,
-                leading: Icon(
-                  Icons.arrow_back,
-                  color: AppColors.darkTextColor,
-                ),
-                onTap: () => Utils.navigatePage(context, FourthPage()),
-                title: Text(
-                  'Fourth Page',
-                  style: TextStyles.baseTextStyle,
-                ),
-              ),
-              ListTile(
-                enabled: true,
-                leading: Icon(
-                  Icons.arrow_back,
-                  color: AppColors.darkTextColor,
-                ),
-                onTap: () => Utils.navigatePage(context, FifthPage()),
-                title: Text(
-                  'Fifth Page',
-                  style: TextStyles.baseTextStyle,
-                ),
-              ),
-              ListTile(
-                enabled: true,
-                leading: Icon(
-                  Icons.arrow_back,
-                  color: AppColors.darkTextColor,
-                ),
-                onTap: () => Utils.navigatePage(context, SixthPage()),
-                title: Text(
-                  'Sixth Page',
-                  style: TextStyles.baseTextStyle,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      drawer: BaseDrawer(),
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         iconTheme: IconThemeData(color: AppColors.darkTextColor),
@@ -195,8 +109,7 @@ class _FifthPageState extends State<FifthPage>
         centerTitle: true,
         title: Text(
           'Google Arts & Culture',
-          style: TextStyles.baseSemiboldStyle
-              .copyWith(color: AppColors.darkTextColor, fontSize: 17),
+          style: TextStyles.logoStyle,
         ),
         actions: <Widget>[
           IconButton(

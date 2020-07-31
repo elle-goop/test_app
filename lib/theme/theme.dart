@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const double opacity = 0.7;
 
@@ -17,7 +18,7 @@ class AppColors {
 }
 
 final ThemeData appTheme = ThemeData(
-  brightness: Brightness.dark,
+  brightness: Brightness.light,
   scaffoldBackgroundColor: Colors.white,
   // primaryColor: AppColors.primary,
   // accentColor: AppColors.blueMain,
@@ -30,29 +31,24 @@ final ThemeData appTheme = ThemeData(
 class TextStyles {
   TextStyles();
 
+  static TextStyle logoStyle =
+      GoogleFonts.lato().copyWith(color: AppColors.darkTextColor, fontSize: 17);
+  // static const TextStyle logoStyle = TextStyle(
+  //     fontSize: 15.0, color: AppColors.white, fontWeight: FontWeight.w600);
+
   static const TextStyle titleStyle = TextStyle(
-    fontSize: 35.0,
-    color: AppColors.white,
-    fontWeight: FontWeight.bold
-  );
+      fontSize: 35.0, color: AppColors.white, fontWeight: FontWeight.bold);
 
   static const TextStyle titleStyleNormal = TextStyle(
-    fontSize: 35.0,
-    color: AppColors.white,
-    fontWeight: FontWeight.w100
-  );
+      fontSize: 35.0, color: AppColors.white, fontWeight: FontWeight.w100);
 
   static const TextStyle titleMediumStyle = TextStyle(
-    fontSize: 20.0,
-    color: AppColors.darkTextColor,
-    fontWeight: FontWeight.w600
-  );
+      fontSize: 20.0,
+      color: AppColors.darkTextColor,
+      fontWeight: FontWeight.w600);
 
   static const TextStyle allCapsStyle = TextStyle(
-    fontSize: 12.0,
-    color: AppColors.white,
-    fontWeight: FontWeight.bold
-  );
+      fontSize: 12.0, color: AppColors.white, fontWeight: FontWeight.bold);
 
   static const TextStyle baseStyle = TextStyle(
     fontSize: 15.0,
@@ -64,28 +60,12 @@ class TextStyles {
     color: AppColors.greyMediumText,
   );
 
-  static const TextStyle baseTextStyle = TextStyle(
-    fontSize: 17.0,
-    color: AppColors.darkTextColor,
-    height: 1.5
-  );
+  static const TextStyle baseTextStyle =
+      TextStyle(fontSize: 17.0, color: AppColors.darkTextColor, height: 1.5);
 
   static const TextStyle baseBoldStyle = TextStyle(
-    fontSize: 15.0,
-    color: AppColors.white,
-    fontWeight: FontWeight.bold
-  );
+      fontSize: 15.0, color: AppColors.white, fontWeight: FontWeight.bold);
 
   static const TextStyle baseSemiboldStyle = TextStyle(
-    fontSize: 15.0,
-    color: AppColors.white,
-    fontWeight: FontWeight.w600
-  );
-
-  // static const TextStyle titleStyle = TextStyle(
-  //   fontSize: 40.0,
-  //   color: AppColors.white,
-  //   letterSpacing: 0.2,
-  //   fontWeight: FontWeight.bold
-  // );
+      fontSize: 15.0, color: AppColors.white, fontWeight: FontWeight.w600);
 }
