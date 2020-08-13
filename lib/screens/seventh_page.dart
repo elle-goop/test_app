@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:test_app/screens/eighth_page.dart';
 import 'package:test_app/theme/theme.dart';
 import 'package:test_app/ui/drawer.dart';
 import 'package:test_app/utils/utils.dart';
@@ -74,7 +75,7 @@ class _SeventhPageState extends State<SeventhPage>
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    VoidCallback onTapItem = () => Utils.pop(context);
+    VoidCallback onTapItem = () => Utils.navigatePage(context, EighthPage());
     return Scaffold(
       resizeToAvoidBottomInset: true,
       extendBody: true,
@@ -110,7 +111,7 @@ class _SeventhPageState extends State<SeventhPage>
               actions: <Widget>[
                 IconButton(
                     icon: Icon(Icons.tap_and_play),
-                    onPressed: () => Utils.pop(context)),
+                    onPressed: () => Utils.navigatePage(context, EighthPage())),
                 IconButton(
                     icon: Icon(
                       Icons.search,
@@ -267,7 +268,7 @@ class _SeventhPageState extends State<SeventhPage>
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Utils.pop(context),
+        onPressed: () => Utils.navigatePage(context, EighthPage()),
         child: Icon(Icons.camera_alt),
         elevation: 3,
         backgroundColor: AppColors.white,

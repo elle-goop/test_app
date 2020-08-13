@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/screens/fifth_page.dart';
-import 'package:test_app/screens/first_page.dart';
-import 'package:test_app/screens/fourth_page.dart';
-import 'package:test_app/screens/second_page.dart';
 import 'package:test_app/screens/seventh_page.dart';
-import 'package:test_app/screens/third_page.dart';
 import 'package:test_app/theme/theme.dart';
 import 'package:test_app/ui/drawer.dart';
 import 'package:test_app/utils/utils.dart';
