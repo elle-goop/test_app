@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:test_app/screens/ninth_page.dart';
 import 'package:test_app/theme/theme.dart';
 import 'package:test_app/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -102,7 +103,7 @@ class _EighthPageState extends State<EighthPage>
               'assets/images/8-top-icon.png',
               width: 24,
             ),
-            onPressed: () => Utils.pop(context),
+            onPressed: () => Utils.navigatePage(context, NinthPage()),
           )
         ],
       ),
@@ -262,7 +263,9 @@ class _EighthPageState extends State<EighthPage>
                                                         AppColors.darkTextColor,
                                                   ),
                                                   onPressed: () =>
-                                                      Utils.pop(context)),
+                                                      Utils.navigatePage(
+                                                          context,
+                                                          NinthPage())),
                                               IconButton(
                                                   icon: Icon(
                                                     Icons.favorite_border,
@@ -270,7 +273,9 @@ class _EighthPageState extends State<EighthPage>
                                                         AppColors.darkTextColor,
                                                   ),
                                                   onPressed: () =>
-                                                      Utils.pop(context)),
+                                                      Utils.navigatePage(
+                                                          context,
+                                                          NinthPage())),
                                             ],
                                           ),
                                         ],

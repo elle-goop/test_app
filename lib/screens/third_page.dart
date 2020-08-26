@@ -27,8 +27,8 @@ class _ThirdPageState extends State<ThirdPage> {
   Color gradientStart = Colors.transparent;
   Color gradientEnd = Colors.black;
 
-  bool isCurrent(int currentIndex, int checkingIndex) => 
-    currentIndex == checkingIndex;
+  bool isCurrent(int currentIndex, int checkingIndex) =>
+      currentIndex == checkingIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -42,19 +42,25 @@ class _ThirdPageState extends State<ThirdPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.white,), 
-          onPressed: ()=> Utils.pop(context)
-        ),
+            icon: Icon(
+              Icons.arrow_back,
+              color: AppColors.white,
+            ),
+            onPressed: () => Utils.pop(context)),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.share, color: AppColors.white,), 
-            onPressed: () =>
-              Utils.navigatePage(context, FourthPage()),
+            icon: Icon(
+              Icons.share,
+              color: AppColors.white,
+            ),
+            onPressed: () => Utils.navigatePage(context, FourthPage()),
           ),
           IconButton(
-            icon: Icon(Icons.favorite_border, color: AppColors.white,), 
-            onPressed: () =>
-              Utils.navigatePage(context, FourthPage()),
+            icon: Icon(
+              Icons.favorite_border,
+              color: AppColors.white,
+            ),
+            onPressed: () => Utils.navigatePage(context, FourthPage()),
           )
         ],
       ),
@@ -66,52 +72,49 @@ class _ThirdPageState extends State<ThirdPage> {
             child: Stack(
               children: <Widget>[
                 CarouselSlider(
-                  carouselController: carouselController,
-                  items: carouselImages.map((e) =>
-                    Container(
-                      height: 500,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          // colorFilter: ColorFilter.mode(
-                          //   Colors.black.withOpacity(0.4),
-                          //   BlendMode.luminosity),
-                          fit: BoxFit.cover,
-                          image: AssetImage(e)),
-                        // gradient: LinearGradient(
-                        //   begin: Alignment.topCenter,
-                        //   end: Alignment.bottomCenter,
-                        //   colors: [gradientStart, gradientEnd],
-                        // ),
-                      ),
-                    )
-                  ).toList(), 
-                  options: CarouselOptions(
-                    height: 500.0,
-                    aspectRatio: 10,
-                    viewportFraction: 1,
-                    initialPage: 0,
-                    autoPlay: true,
-                    onPageChanged: (index, reason) =>
-                      setState(() => current = index),
-                  )
-                ),
+                    carouselController: carouselController,
+                    items: carouselImages
+                        .map((e) => Container(
+                              height: 500,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    // colorFilter: ColorFilter.mode(
+                                    //   Colors.black.withOpacity(0.4),
+                                    //   BlendMode.luminosity),
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(e)),
+                                // gradient: LinearGradient(
+                                //   begin: Alignment.topCenter,
+                                //   end: Alignment.bottomCenter,
+                                //   colors: [gradientStart, gradientEnd],
+                                // ),
+                              ),
+                            ))
+                        .toList(),
+                    options: CarouselOptions(
+                      height: 500.0,
+                      aspectRatio: 10,
+                      viewportFraction: 1,
+                      initialPage: 0,
+                      autoPlay: true,
+                      onPageChanged: (index, reason) =>
+                          setState(() => current = index),
+                    )),
                 Positioned(
-                  top: 400,
-                  height: 100,
-                  width: screenWidth,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
+                    top: 400,
+                    height: 100,
+                    width: screenWidth,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [gradientStart, gradientEnd],
                         ),
-                    ),
-                  )
-                ),
+                      ),
+                    )),
                 Positioned(
                   width: screenWidth,
-                  // top: 40,
                   bottom: 10,
                   child: Padding(
                     padding: EdgeInsets.only(left: 30, right: 30),
@@ -122,12 +125,12 @@ class _ThirdPageState extends State<ThirdPage> {
                         int currentIndex = carouselImages.indexOf(e);
                         return Container(
                           margin: EdgeInsets.only(left: 3, right: 3),
-                          width: (screenWidth - 60 - 6*total)/total,
+                          width: (screenWidth - 60 - 6 * total) / total,
                           height: 3,
                           decoration: BoxDecoration(
-                            color: AppColors.white.withOpacity(isCurrent(current, currentIndex) ? 1 : 0.5),
-                            borderRadius: BorderRadius.circular(6)
-                          ),
+                              color: AppColors.white.withOpacity(
+                                  isCurrent(current, currentIndex) ? 1 : 0.5),
+                              borderRadius: BorderRadius.circular(6)),
                         );
                       }).toList(),
                     ),
@@ -136,50 +139,65 @@ class _ThirdPageState extends State<ThirdPage> {
               ],
             ),
           ),
-
-
-          
           Container(
             padding: EdgeInsets.only(top: 21, bottom: 35, right: 18, left: 18),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.symmetric(vertical:3, horizontal: 5),
+                  padding: EdgeInsets.symmetric(vertical: 3, horizontal: 5),
                   decoration: BoxDecoration(
-                    color: AppColors.white.withOpacity(0.9),
-                    borderRadius: BorderRadius.all(Radius.circular(3))
-                  ),
+                      color: AppColors.white.withOpacity(0.9),
+                      borderRadius: BorderRadius.all(Radius.circular(3))),
                   child: Text(
                     ConstText.screen3_top_button,
-                    style: TextStyles.allCapsStyle.copyWith(color: Colors.black),
+                    style:
+                        TextStyles.allCapsStyle.copyWith(color: Colors.black),
                   ),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Text(
                   ConstText.screen3_top_title,
                   style: TextStyles.titleStyle,
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Row(
                   children: <Widget>[
-                    Icon(Icons.star, color: AppColors.white.withOpacity(0.95), size: 18,),
-                    SizedBox(width: 3,),
+                    Icon(
+                      Icons.star,
+                      color: AppColors.white.withOpacity(0.95),
+                      size: 18,
+                    ),
+                    SizedBox(
+                      width: 3,
+                    ),
                     Text(
                       '4.97',
                       style: TextStyles.baseBoldStyle,
                     ),
-                    SizedBox(width: 6,),
+                    SizedBox(
+                      width: 6,
+                    ),
                     Text(
                       '(423)',
-                      style: TextStyles.baseStyle,)
+                      style: TextStyles.baseStyle,
+                    )
                   ],
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Text(
                   ConstText.screen3_top_place_name,
-                  style: TextStyles.baseStyle,),
-                SizedBox(height: 15,),
+                  style: TextStyles.baseStyle,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
                 ButtonBar(
                   // buttonHeight: 12,
                   mainAxisSize: MainAxisSize.min,
@@ -187,31 +205,36 @@ class _ThirdPageState extends State<ThirdPage> {
                   children: <Widget>[
                     FlatButton(
                       onPressed: () =>
-                        Utils.navigatePage(context, FourthPage()),
+                          Utils.navigatePage(context, FourthPage()),
                       color: AppColors.white.withOpacity(0.2),
                       child: Text(
                         ConstText.tag_cooking,
-                        style: TextStyles.allCapsStyle.copyWith(color: AppColors.white),
+                        style: TextStyles.allCapsStyle
+                            .copyWith(color: AppColors.white),
                       ),
                     ),
                     FlatButton(
                       onPressed: () =>
-                        Utils.navigatePage(context, FourthPage()),
+                          Utils.navigatePage(context, FourthPage()),
                       color: AppColors.white.withOpacity(0.2),
                       child: Text(
                         ConstText.tag_class,
-                        style: TextStyles.allCapsStyle.copyWith(color: AppColors.white),
+                        style: TextStyles.allCapsStyle
+                            .copyWith(color: AppColors.white),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Divider(
                   height: 1,
                   color: AppColors.white.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: screenWidth/8, top: 15, bottom: 15),
+                  padding: EdgeInsets.only(
+                      left: screenWidth / 8, top: 15, bottom: 15),
                   child: Text(
                     ConstText.screen3_between_lines,
                     style: TextStyles.baseStyle,
@@ -221,33 +244,38 @@ class _ThirdPageState extends State<ThirdPage> {
                   height: 1,
                   color: AppColors.white.withOpacity(0.8),
                 ),
-                SizedBox(height: 25,),
+                SizedBox(
+                  height: 25,
+                ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Icon(
-                            Icons.access_time,
-                            color: AppColors.white.withOpacity(0.8),
-                            size: 16,
-                          ),
-                          SizedBox(height: 9,),
-                          Text(
-                            'Duration',
-                            style: TextStyles.baseSemiboldStyle.copyWith(color: AppColors.white.withOpacity(0.8)),
-                          ),
-                          SizedBox(height: 6,),
-                          Text(
-                            '1.5 hours',
-                            style: TextStyles.baseStyle,
-                          ),
-                        ],
-                      )
-                    ),
-
+                        child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Icon(
+                          Icons.access_time,
+                          color: AppColors.white.withOpacity(0.8),
+                          size: 16,
+                        ),
+                        SizedBox(
+                          height: 9,
+                        ),
+                        Text(
+                          'Duration',
+                          style: TextStyles.baseSemiboldStyle.copyWith(
+                              color: AppColors.white.withOpacity(0.8)),
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                          '1.5 hours',
+                          style: TextStyles.baseStyle,
+                        ),
+                      ],
+                    )),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -256,38 +284,47 @@ class _ThirdPageState extends State<ThirdPage> {
                           color: AppColors.white.withOpacity(0.8),
                           size: 16,
                         ),
-                        SizedBox(height: 9,),
+                        SizedBox(
+                          height: 9,
+                        ),
                         Text(
                           'Group size',
-                          style: TextStyles.baseSemiboldStyle.copyWith(color: AppColors.white.withOpacity(0.8)),
+                          style: TextStyles.baseSemiboldStyle.copyWith(
+                              color: AppColors.white.withOpacity(0.8)),
                         ),
-                        SizedBox(height: 6,),
+                        SizedBox(
+                          height: 6,
+                        ),
                         Text(
                           'Up to 10 people',
                           style: TextStyles.baseStyle,
                         ),
                       ],
                     ),
-                    SizedBox(width: screenWidth/8,),
+                    SizedBox(
+                      width: screenWidth / 8,
+                    ),
                   ],
                 ),
-
-                SizedBox(height: 25,),
-
+                SizedBox(
+                  height: 25,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    FaIcon(
-                      FontAwesomeIcons.comments,
-                      color: AppColors.white.withOpacity(0.8),
-                      size: 16
+                    FaIcon(FontAwesomeIcons.comments,
+                        color: AppColors.white.withOpacity(0.8), size: 16),
+                    SizedBox(
+                      height: 9,
                     ),
-                    SizedBox(height: 9,),
                     Text(
                       'Hosted in',
-                      style: TextStyles.baseSemiboldStyle.copyWith(color: AppColors.white.withOpacity(0.8)),
+                      style: TextStyles.baseSemiboldStyle
+                          .copyWith(color: AppColors.white.withOpacity(0.8)),
                     ),
-                    SizedBox(height: 6,),
+                    SizedBox(
+                      height: 6,
+                    ),
                     Text(
                       'English, Spanish',
                       style: TextStyles.baseStyle,
@@ -297,7 +334,6 @@ class _ThirdPageState extends State<ThirdPage> {
               ],
             ),
           ),
-
           Container(
             color: AppColors.white,
             padding: EdgeInsets.only(top: 45, bottom: 35, right: 18, left: 18),
@@ -308,7 +344,9 @@ class _ThirdPageState extends State<ThirdPage> {
                   'What you\'ll do',
                   style: TextStyles.titleMediumStyle,
                 ),
-                SizedBox(height: 25,),
+                SizedBox(
+                  height: 25,
+                ),
                 ReadMoreText(
                   '''
 Immerse yourself in Mexico's extraordinary street food culture in a guided cooking class with a professional chef. Learn to cook a Mexican street taco—including filling, hand-made flour tortillas, and salsa—with practical recipes that you can follow at home. In the first half hour we will have our Welcome, Meet and Greet, Class Structure and Mexican Taco Overview. In the following hour you will cook step by step a delicious Taco from scratch.
@@ -332,7 +370,6 @@ More than 100 classes & 1,000 guests. Honored that this experience has been feat
               ],
             ),
           ),
-
           Container(
             color: AppColors.greyLight,
             padding: EdgeInsets.only(top: 30, bottom: 35, right: 18, left: 18),
@@ -343,12 +380,16 @@ More than 100 classes & 1,000 guests. Honored that this experience has been feat
                   'Try something new together',
                   style: TextStyles.titleMediumStyle,
                 ),
-                SizedBox(height: 25,),
+                SizedBox(
+                  height: 25,
+                ),
                 Divider(
                   height: 1,
                   color: AppColors.greyMediumText.withOpacity(0.4),
                 ),
-                SizedBox(height: 25,),
+                SizedBox(
+                  height: 25,
+                ),
                 Row(
                   children: <Widget>[
                     SizedBox(
@@ -356,18 +397,20 @@ More than 100 classes & 1,000 guests. Honored that this experience has been feat
                       height: 30,
                       child: Image.asset('assets/images/granny.jpg'),
                     ),
-                    SizedBox(width: screenWidth/15,),
-                    Expanded(
-                      child: Text(
-                        'Get to know hosts who share their expertise and a window to their world.',
-                        maxLines: 5,
-                        style: TextStyles.baseTextStyle.copyWith(height: 1.5),
-                      )
+                    SizedBox(
+                      width: screenWidth / 15,
                     ),
+                    Expanded(
+                        child: Text(
+                      'Get to know hosts who share their expertise and a window to their world.',
+                      maxLines: 5,
+                      style: TextStyles.baseTextStyle.copyWith(height: 1.5),
+                    )),
                   ],
                 ),
-
-                SizedBox(height: 25,),
+                SizedBox(
+                  height: 25,
+                ),
                 Row(
                   children: <Widget>[
                     SizedBox(
@@ -375,18 +418,20 @@ More than 100 classes & 1,000 guests. Honored that this experience has been feat
                       height: 30,
                       child: Image.asset('assets/images/people.jpg'),
                     ),
-                    SizedBox(width: screenWidth/15,),
-                    Expanded(
-                      child: Text(
-                        'Meet people from all over the world while learning something new together.',
-                        maxLines: 5,
-                        style: TextStyles.baseTextStyle,
-                      )
+                    SizedBox(
+                      width: screenWidth / 15,
                     ),
+                    Expanded(
+                        child: Text(
+                      'Meet people from all over the world while learning something new together.',
+                      maxLines: 5,
+                      style: TextStyles.baseTextStyle,
+                    )),
                   ],
                 ),
-
-                SizedBox(height: 25,),
+                SizedBox(
+                  height: 25,
+                ),
                 Row(
                   children: <Widget>[
                     SizedBox(
@@ -394,14 +439,15 @@ More than 100 classes & 1,000 guests. Honored that this experience has been feat
                       height: 30,
                       child: Image.asset('assets/images/laptop.jpg'),
                     ),
-                    SizedBox(width: screenWidth/15,),
-                    Expanded(
-                      child: Text(
-                        'Join easily and participate from home without a lot of prep.',
-                        maxLines: 5,
-                        style: TextStyles.baseTextStyle,
-                      )
+                    SizedBox(
+                      width: screenWidth / 15,
                     ),
+                    Expanded(
+                        child: Text(
+                      'Join easily and participate from home without a lot of prep.',
+                      maxLines: 5,
+                      style: TextStyles.baseTextStyle,
+                    )),
                   ],
                 ),
               ],
@@ -417,21 +463,28 @@ More than 100 classes & 1,000 guests. Honored that this experience has been feat
                   'Your host',
                   style: TextStyles.titleMediumStyle,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
                 ClipOval(
                   child: Image.asset(
                     'assets/images/graciela1.jpg',
                     fit: BoxFit.cover,
-                    height: screenWidth/2,
-                    width: screenWidth/2,
+                    height: screenWidth / 2,
+                    width: screenWidth / 2,
                   ),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'Graciela',
-                  style: TextStyles.titleMediumStyle.copyWith(fontWeight: FontWeight.bold),
+                  style: TextStyles.titleMediumStyle
+                      .copyWith(fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 ReadMoreText(
                   '''
 “Hola, I'm Chef Graciela, born and raised in Mexico City. My childhood memories relate to cooking with my Family. In 2009, I created Aura Cocina Mexicana (@auramexcooking), a family business where we’ve hosted international culinary enthusiasts and chefs.
@@ -443,16 +496,18 @@ I am passionate about Mexico’s culinary traditions and I would love to share w
                   trimLines: 9,
                   trimMode: TrimMode.Line,
                 ),
-
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 OutlineButton(
-                  onPressed: () =>
-                    Utils.navigatePage(context, FourthPage()),
+                  onPressed: () => Utils.navigatePage(context, FourthPage()),
                   child: Text(
                     'Contact host',
-                    style: TextStyles.baseSemiboldStyle.copyWith(color: AppColors.greenReadMore),
+                    style: TextStyles.baseSemiboldStyle
+                        .copyWith(color: AppColors.greenReadMore),
                   ),
-                  borderSide: BorderSide(color: AppColors.greenReadMore, width: 2),
+                  borderSide:
+                      BorderSide(color: AppColors.greenReadMore, width: 2),
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 )
               ],
