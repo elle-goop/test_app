@@ -1,10 +1,8 @@
-import 'package:flutter/gestures.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:test_app/theme/theme.dart';
 import 'package:test_app/utils/utils.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class CarouselItem {
   final String image;
@@ -134,20 +132,141 @@ class _NinthPageState extends State<NinthPage>
                                 carouselController: carouselController,
                                 items: List.generate(
                                     7,
-                                    (i) => Container(
-                                          height: 370,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                colorFilter: ColorFilter.mode(
-                                                    Colors.black
-                                                        .withOpacity(0.4),
-                                                    BlendMode.luminosity),
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                    carouselItem.image)),
-                                          ),
+                                    (i) => Stack(
+                                          children: [
+                                            Container(
+                                              height: 370,
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                    colorFilter:
+                                                        ColorFilter.mode(
+                                                            Colors.black
+                                                                .withOpacity(
+                                                                    0.4),
+                                                            BlendMode
+                                                                .luminosity),
+                                                    fit: BoxFit.cover,
+                                                    image: AssetImage(
+                                                        carouselItem.image)),
+                                              ),
+                                            ),
+                                            Positioned(
+                                                top: 20,
+                                                left: 20,
+                                                child: Container(
+                                                    width:
+                                                        screenWidth - 30 - 30,
+                                                    child: Text(
+                                                      carouselItem.text,
+                                                      maxLines: 5,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyles
+                                                          .logoStyle
+                                                          .copyWith(
+                                                              fontSize: 20,
+                                                              height: 1.194,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              color: AppColors
+                                                                  .white,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .black54),
+                                                    ))),
+                                            Positioned(
+                                                bottom: 30,
+                                                left: 20,
+                                                child: Container(
+                                                    width:
+                                                        screenWidth - 30 - 30,
+                                                    child: Text(
+                                                      '$i ${carouselItem.title}',
+                                                      maxLines: 2,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyles
+                                                          .logoStyle
+                                                          .copyWith(
+                                                              fontSize: 22,
+                                                              height: 1.3,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              color: AppColors
+                                                                  .white),
+                                                    ))),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () =>
+                                                      carouselController
+                                                          .previousPage(),
+                                                  child: Container(
+                                                    width: 50,
+                                                    height: 370,
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ),
+                                                GestureDetector(
+                                                  onTap: () =>
+                                                      carouselController
+                                                          .nextPage(),
+                                                  child: Container(
+                                                    width: 50,
+                                                    color: Colors.transparent,
+                                                    height: 370,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Positioned(
+                                                bottom: 98,
+                                                left: 30,
+                                                child: Container(
+                                                    width:
+                                                        screenWidth - 30 - 30,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          carouselItem.time,
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyles
+                                                              .logoStyle
+                                                              .copyWith(
+                                                                  fontSize: 16,
+                                                                  height: 1.3,
+                                                                  color: AppColors
+                                                                      .white),
+                                                        ),
+                                                        IconButton(
+                                                            icon: Icon(
+                                                              Icons.more_vert,
+                                                              color: AppColors
+                                                                  .white,
+                                                            ),
+                                                            onPressed: () =>
+                                                                Utils.pop(
+                                                                    context))
+                                                      ],
+                                                    ))),
+                                          ],
                                         )).toList(),
                                 options: CarouselOptions(
+                                  autoPlayAnimationDuration:
+                                      Duration(seconds: 1),
                                   height: 500.0,
                                   aspectRatio: 10,
                                   viewportFraction: 1,
@@ -164,79 +283,19 @@ class _NinthPageState extends State<NinthPage>
                                 mainAxisSize: MainAxisSize.max,
                                 children: List.generate(7, (index) {
                                   int total = 7;
-                                  bool isCurrent = current == index;
                                   return Container(
                                     margin: EdgeInsets.only(left: 3, right: 3),
                                     width: (screenWidth - 30 - 60 - 6 * total) /
                                         total,
                                     height: 3,
                                     decoration: BoxDecoration(
-                                        color: AppColors.white
-                                            .withOpacity(isCurrent ? 1 : 0.5),
+                                        color: AppColors.white.withOpacity(
+                                            current < index ? 0.5 : 1),
                                         borderRadius: BorderRadius.circular(6)),
                                   );
                                 }).toList(),
                               ),
                             ),
-                            Positioned(
-                                top: 20,
-                                left: 20,
-                                child: Container(
-                                    width: screenWidth - 30 - 30,
-                                    child: Text(
-                                      carouselItem.text,
-                                      maxLines: 5,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyles.logoStyle.copyWith(
-                                          fontSize: 20,
-                                          height: 1.194,
-                                          fontWeight: FontWeight.w500,
-                                          color: AppColors.white,
-                                          backgroundColor: Colors.black54),
-                                    ))),
-                            Positioned(
-                                bottom: 30,
-                                left: 20,
-                                child: Container(
-                                    width: screenWidth - 30 - 30,
-                                    child: Text(
-                                      carouselItem.title,
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyles.logoStyle.copyWith(
-                                          fontSize: 22,
-                                          height: 1.3,
-                                          fontWeight: FontWeight.w700,
-                                          color: AppColors.white),
-                                    ))),
-                            Positioned(
-                                bottom: 98,
-                                left: 30,
-                                child: Container(
-                                    width: screenWidth - 30 - 30,
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          carouselItem.time,
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyles.logoStyle.copyWith(
-                                              fontSize: 16,
-                                              height: 1.3,
-                                              // fontWeight: FontWeight.w700,
-                                              color: AppColors.white),
-                                        ),
-                                        IconButton(
-                                            icon: Icon(
-                                              Icons.more_vert,
-                                              color: AppColors.white,
-                                            ),
-                                            onPressed: () => Utils.pop(context))
-                                      ],
-                                    ))),
                           ],
                         ),
                       ),
