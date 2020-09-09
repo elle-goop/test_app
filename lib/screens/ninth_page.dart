@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:test_app/screens/tenth_page.dart';
 import 'package:test_app/theme/theme.dart';
 import 'package:test_app/utils/utils.dart';
 
@@ -81,10 +82,11 @@ class _NinthPageState extends State<NinthPage>
           actions: <Widget>[
             IconButton(
                 icon: Image.asset('assets/images/9-user-image.png'),
-                onPressed: () => Utils.pop(context)),
+                onPressed: () => Utils.navigatePage(context, TenthPage())),
           ],
           leading: IconButton(
-              icon: Icon(Icons.search), onPressed: () => Utils.pop(context)),
+              icon: Icon(Icons.search),
+              onPressed: () => Utils.navigatePage(context, TenthPage())),
           bottom: currentTab == 1
               ? TabBar(
                   isScrollable: true,
@@ -257,9 +259,10 @@ class _NinthPageState extends State<NinthPage>
                                                               color: AppColors
                                                                   .white,
                                                             ),
-                                                            onPressed: () =>
-                                                                Utils.pop(
-                                                                    context))
+                                                            onPressed: () => Utils
+                                                                .navigatePage(
+                                                                    context,
+                                                                    TenthPage()))
                                                       ],
                                                     ))),
                                           ],
@@ -311,7 +314,8 @@ class _NinthPageState extends State<NinthPage>
                           shadowColor: AppColors.greyLight,
                           color: AppColors.white,
                           child: InkWell(
-                            onTap: () => Utils.pop(context),
+                            onTap: () =>
+                                Utils.navigatePage(context, TenthPage()),
                             child: Center(
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -338,8 +342,8 @@ class _NinthPageState extends State<NinthPage>
                           color: Colors.transparent,
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
                           child: InkWell(
-                            // onTap: () => Utils.pop(context),
-                            onTap: () => Utils.pop(context),
+                            onTap: () =>
+                                Utils.navigatePage(context, TenthPage()),
                             child: Container(
                               height: 230,
                               decoration: BoxDecoration(
