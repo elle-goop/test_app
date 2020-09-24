@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screens/eleventh_page.dart';
 import 'package:test_app/screens/first_page.dart';
 import 'package:test_app/screens/ninth_page.dart';
 import 'package:test_app/screens/tenth_page.dart';
@@ -16,9 +17,8 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Const.appName,
       theme: appTheme,
-      home: FirstPage(),
-      // home: TenthPage(),
-      // home: FilterPage(),
+      // home: FirstPage(),
+      home: EleventhPage(),
     );
   }
 }
