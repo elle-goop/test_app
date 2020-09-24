@@ -175,8 +175,9 @@ class _EleventhPageState extends State<EleventhPage> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   FloatingActionButton(
+                                    heroTag: null,
                                     backgroundColor: AppColors.white,
-                                    onPressed: () {},
+                                    onPressed: () => Utils.pop(context),
                                     child: Icon(
                                       Icons.play_arrow,
                                       size: 38,
@@ -188,8 +189,9 @@ class _EleventhPageState extends State<EleventhPage> {
                                     height: 15,
                                   ),
                                   FloatingActionButton(
+                                    heroTag: null,
                                     backgroundColor: AppColors.white,
-                                    onPressed: () {},
+                                    onPressed: () => Utils.pop(context),
                                     child: Icon(
                                       Icons.people,
                                       size: 38,
@@ -201,8 +203,9 @@ class _EleventhPageState extends State<EleventhPage> {
                                     height: 15,
                                   ),
                                   FloatingActionButton(
+                                    heroTag: null,
                                     backgroundColor: AppColors.white,
-                                    onPressed: () {},
+                                    onPressed: () => Utils.pop(context),
                                     child: Icon(
                                       Icons.file_download,
                                       size: 38,

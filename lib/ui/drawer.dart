@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/screens/eighth_page.dart';
+import 'package:test_app/screens/eleventh_page.dart';
 import 'package:test_app/screens/fifth_page.dart';
 import 'package:test_app/screens/first_page.dart';
 import 'package:test_app/screens/fourth_page.dart';
@@ -140,6 +141,18 @@ class BaseDrawer extends StatelessWidget {
               onTap: () => Utils.navigatePage(context, TenthPage()),
               title: Text(
                 'Tenth Page',
+                style: TextStyles.baseTextStyle,
+              ),
+            ),
+            ListTile(
+              enabled: true,
+              leading: Icon(
+                Icons.arrow_back,
+                color: AppColors.darkTextColor,
+              ),
+              onTap: () => Utils.navigatePage(context, EleventhPage()),
+              title: Text(
+                'Eleventh Page',
                 style: TextStyles.baseTextStyle,
               ),
             ),

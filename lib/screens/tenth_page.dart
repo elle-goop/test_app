@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screens/eleventh_page.dart';
 import 'package:test_app/theme/theme.dart';
 import 'package:test_app/utils/utils.dart';
 
@@ -226,7 +227,8 @@ class _TenthPageState extends State<TenthPage> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(6.0),
                                   side: BorderSide(color: AppColors.greyLight)),
-                              onPressed: () => Utils.pop(context),
+                              onPressed: () =>
+                                  Utils.navigatePage(context, EleventhPage()),
                               child: Text(
                                 item.buttonText,
                                 style: TextStyles.baseSemiboldStyle
@@ -265,7 +267,8 @@ class _TenthPageState extends State<TenthPage> {
                                 side: BorderSide(
                                     color: AppColors.greyMediumText
                                         .withOpacity(0.2))),
-                            onPressed: () => Utils.pop(context),
+                            onPressed: () =>
+                                Utils.navigatePage(context, EleventhPage()),
                             child: Text(
                               'Dates',
                               style: TextStyles.baseStyle
@@ -291,7 +294,8 @@ class _TenthPageState extends State<TenthPage> {
                                 side: BorderSide(
                                     color: AppColors.greyMediumText
                                         .withOpacity(0.2))),
-                            onPressed: () => Utils.pop(context),
+                            onPressed: () =>
+                                Utils.navigatePage(context, EleventhPage()),
                             child: Row(
                               children: [
                                 Text(
@@ -325,7 +329,8 @@ class _TenthPageState extends State<TenthPage> {
                                 side: BorderSide(
                                     color: AppColors.greyMediumText
                                         .withOpacity(0.2))),
-                            onPressed: () => Utils.pop(context),
+                            onPressed: () =>
+                                Utils.navigatePage(context, EleventhPage()),
                             child: Row(
                               children: [
                                 Text(
@@ -353,7 +358,8 @@ class _TenthPageState extends State<TenthPage> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                       child: GestureDetector(
-                        onTap: () => Utils.pop(context),
+                        onTap: () =>
+                            Utils.navigatePage(context, EleventhPage()),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -366,7 +372,8 @@ class _TenthPageState extends State<TenthPage> {
                             )),
                             IconButton(
                                 icon: Icon(Icons.chevron_right),
-                                onPressed: () => Utils.pop(context))
+                                onPressed: () =>
+                                    Utils.navigatePage(context, EleventhPage()))
                           ],
                         ),
                       ),
@@ -404,7 +411,8 @@ class _TenthPageState extends State<TenthPage> {
                                           Icons.favorite_border,
                                           color: AppColors.white,
                                         ),
-                                        onPressed: () => Utils.pop(context)),
+                                        onPressed: () => Utils.navigatePage(
+                                            context, EleventhPage())),
                                   ),
                                   Row(
                                     children: [

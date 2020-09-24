@@ -17,8 +17,8 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Const.appName,
       theme: appTheme,
-      // home: FirstPage(),
-      home: EleventhPage(),
+      home: FirstPage(),
+      // home: EleventhPage(),
     );
   }
 }
